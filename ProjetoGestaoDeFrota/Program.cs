@@ -10,6 +10,7 @@ namespace ProjetoGestaoDeFrota
             int x = int.Parse(Console.ReadLine());
             if (x==1)
             {
+                Console.WriteLine("oi ");
                 Console.Write("Digite o Valor do Alcool: ");
                 double valAlc = double.Parse(Console.ReadLine());
                 Alcool alc = new Alcool(valAlc);
