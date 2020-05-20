@@ -6,19 +6,29 @@ namespace ProjetoGestaoDeFrota
 {
     class Van : Veiculo
     {
-        double quantLitro;
-        public Van(string placa, int kmRota, DateTime data, IAbastecimento tanque) : base(placa, tanque)
+        #region Construtor
+        public Van(string placa, double capacidadeTanque, double consumo) : base(placa, capacidadeTanque, new Gasolina(consumo))
         {
            
         }
+        #endregion
+
+        #region Métodos
         public override void addRota(DateTime data, int Kmrota)
         {
             Rota rota = new Rota(Kmrota, data);
         }
-
         public override double reabastecer()
         {
             return 1;
         }
+        #endregion
+
+        #region ToString para retorno
+        public override string ToString()
+        {
+            return Placa;
+        }
+        #endregion
     }
 }
