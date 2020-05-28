@@ -15,18 +15,18 @@ namespace ProjetoGestaoDeFrota
         #endregion
 
         #region Construtores
-        public Alcool()
-        {
-            ValorLitro = 3.599;
-        }
-
         public Alcool(double consumo)
         {
             Consumo = consumo;
+            ValorLitro = 2.899;
         }
         #endregion
 
         #region Métodos
+        public void AlteraValorLitro(double precoLitro)
+        {
+            ValorLitro = precoLitro;
+        }
         public double consumo()
         {
             return Consumo;

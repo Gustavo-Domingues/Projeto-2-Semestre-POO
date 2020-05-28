@@ -7,7 +7,7 @@ namespace ProjetoGestaoDeFrota
     class Carro : Veiculo
     {
         #region Construtor
-        public Carro(string placa, double capacidadeTanque, double consumo) : base(placa, capacidadeTanque, new Alcool(consumo))
+        public Carro(string placa) : base(placa, 50, new Alcool(7))
         {
             
         }
@@ -16,18 +16,25 @@ namespace ProjetoGestaoDeFrota
         #region Métodos
         public override void addRota(DateTime data, int Kmrota)
         {
-            Rota rota = new Rota(Kmrota, data);
-        }
-        public override double reabastecer()
-        {
-            return 1;
-        }
-        #endregion
-
-        #region ToString para retorno
-        public override string ToString()
-        {
-            return Placa;
+            if (Kmrota > (CapacidadeTanque * Tanque.consumo()))
+            {
+                // Retorno para informar impossibilidade de percurso
+            }
+            else
+            {
+                if (Kmrota < (QuantidadeLitrosAtual * Tanque.consumo()))
+                {
+                    double quantGasto = Kmrota / Tanque.consumo();
+                    QuantidadeLitrosAtual -= quantGasto;
+                    rota.Data = data;
+                    rota.KmRota = Kmrota;
+                }
+                else
+                {
+                    double _litrosParaAbastecer = Kmrota - QuantidadeLitrosAtual;
+                    reabastecer(_litrosParaAbastecer);
+                }
+            }
         }
         #endregion
     }

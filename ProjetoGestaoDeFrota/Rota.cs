@@ -1,21 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Globalization;
 
 namespace ProjetoGestaoDeFrota
 {
     class Rota
     {
+       
         private int _KmRota;
-        private DateTime _Data;
 
-        public Rota(int kmRota, DateTime data)
+        private DateTime data;
+        
+        public Rota()
         {
-            KmRota = kmRota;
-            Data = data;
-        }
+
+        }      
 
         public int KmRota { get => _KmRota; set => _KmRota = value; }
-        public DateTime Data { get => _Data; set => _Data = value; }
+        public DateTime Data { get => data; set => data = value; }
+
+        public override string ToString()
+        {
+            return data.ToString("dd-MM-yyyy");
+        }
     }
 }

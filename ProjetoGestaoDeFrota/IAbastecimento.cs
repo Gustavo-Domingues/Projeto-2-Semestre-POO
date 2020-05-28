@@ -6,5 +6,6 @@ namespace ProjetoGestaoDeFrota
     {
         public double consumo();
         public double valorLitro();
+        public void AlteraValorLitro(double precoLitro);
     }
 }

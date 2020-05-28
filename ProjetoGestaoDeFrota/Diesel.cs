@@ -15,18 +15,18 @@ namespace ProjetoGestaoDeFrota
         #endregion
 
         #region Construtores
-        public Diesel()
-        {
-            ValorLitro = 3.599;
-        }
-
         public Diesel(double consumo)
         {
             Consumo = consumo;
+            ValorLitro = 3.599;
         }
         #endregion
 
         #region Métodos
+        public void AlteraValorLitro(double precoLitro)
+        {
+            ValorLitro = precoLitro;
+        }
         public double consumo()
         {
             return Consumo;
